@@ -394,6 +394,10 @@ description Vlan Accoting
 switchport mode access 
 switchport access vlan 10 
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 exit
 
 int range e1/0
@@ -401,6 +405,10 @@ description Vlan RR.HH
 switchport mode access 
 switchport access vlan 20
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 exit
 
 int range e0/3
@@ -439,6 +447,10 @@ description Vlan TI
 switchport mode access 
 switchport access vlan 40
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 exit
 
 int range e0/3
@@ -446,6 +458,10 @@ description Vlan Gerent
 switchport mode access 
 switchport access vlan 666
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 exit
 
 do wr
@@ -515,12 +531,17 @@ channel-group 1 mode active
 switchport trunk encapsulation dot1Q
 switchport mode trunk 
 switchport trunk allowed vlan 30,50,999
+
 exit
 
 int e0/2
 switchport mode access 
 switchport access vlan 30 
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 no shutdown  
 exit
 
@@ -708,6 +729,10 @@ int e0/2
 switchport mode access 
 switchport access vlan 50
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 no shutdown
 exit
 
@@ -715,6 +740,10 @@ int e0/3
 switchport mode access 
 switchport access vlan 60
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 no shutdown
 exit
 
@@ -756,6 +785,10 @@ int e0/2
 switchport mode access 
 switchport access vlan 70
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 no shutdown
 exit
 
@@ -763,6 +796,10 @@ int e0/3
 switchport mode access 
 switchport access vlan 70
 spanning-tree portfast
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
 no shutdown
 exit
 
