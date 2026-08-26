@@ -68,12 +68,42 @@ exit
 
 ip route 0.0.0.0 0.0.0.0 203.45.67.89
 
+interface Tunnel0
+ ip address 172.16.0.1 255.255.255.252
+ ip ospf message-digest-key 1 md5 j4vi@12
+ tunnel source 203.45.67.90
+ tunnel destination 203.45.67.98
+ tunnel protection ipsec profile GRE
+
+crypto isakmp policy 10
+ encr aes 256
+ hash sha256
+ authentication pre-share
+ group 14
+ lifetime 3600
+exit
+
+crypto isakmp key cisco address 203.45.67.98
+
+crypto ipsec transform-set VPN esp-aes 256 esp-sha256-hmac
+ mode tunnel
+exit
+
+crypto ipsec profile GRE
+ set transform-set VPN
+exit
+
 router ospf 1
-router-id 1.1.1.1
-area 0 authentication message-digest
-network 192.168.0.104 0.0.0.3 area 0 
-network 192.168.0.108 0.0.0.3 area 0 
-default-information originate
+ router-id 1.1.1.1
+ area 0 authentication message-digest
+ passive-interface default
+ no passive-interface Ethernet0/0
+ no passive-interface Ethernet0/1
+ no passive-interface Tunnel0
+ network 172.16.0.0 0.0.0.3 area 0
+ network 192.168.0.104 0.0.0.3 area 0
+ network 192.168.0.108 0.0.0.3 area 0
+ default-information originate
 
 end 
 wr
@@ -569,6 +599,30 @@ ip ospf message-digest-key 1 md5 j4vi@12
 ip add 192.168.8.65 255.255.255.252
 no shutdown 
 exit
+
+interface Tunnel0
+ ip address 172.16.0.2 255.255.255.252
+ ip ospf message-digest-key 1 md5 j4vi@12
+ tunnel source 203.45.67.98
+ tunnel destination 203.45.67.90
+ tunnel protection ipsec profile GRE
+
+crypto isakmp policy 10
+ encr aes 256
+ hash sha256
+ authentication pre-share
+ group 14
+ lifetime 3600
+exit
+
+crypto isakmp key cisco address 203.45.67.90
+
+crypto ipsec transform-set VPN esp-aes 256 esp-sha256-hmac
+ mode tunnel
+exit
+
+access-list 110 permit ip 192.168.1.0 0.0.0.255 192.168.2.0 0.0.0.255
+
 
 ip route 0.0.0.0 0.0.0.0 203.45.67.97
 
