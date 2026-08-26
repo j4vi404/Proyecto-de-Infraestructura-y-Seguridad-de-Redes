@@ -148,5 +148,6 @@ La red está formada por dos sedes conectadas por Internet a través de un túne
 <div align="center">
 
 **Proyecto de Infraestructura de Redes — Nivel Avanzado**
+                    Sr.Minyete
 
 </div>
