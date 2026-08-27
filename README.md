@@ -44,8 +44,6 @@ Diseñar e implementar una red empresarial de dos sedes (**Matriz** y **Sede STG
 
 ## 🖼️ Capturas de Pantalla
 
-Coloca las imágenes en `docs/screenshots/` con estos nombres:
-
 - Topología general de la red
   
 <img width="359" height="140" alt="Screenshot 2026-08-26 164308" src="https://github.com/user-attachments/assets/4183c7c5-e87b-4c85-99dd-100323614a66" />
