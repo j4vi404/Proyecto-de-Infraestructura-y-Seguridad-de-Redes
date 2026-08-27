@@ -66,7 +66,7 @@ Diseñar e implementar una red empresarial de dos sedes (**Matriz** y **Sede STG
 
 
 ---
-- Configuración del servidor DHCP 
+- Configuración del servidor DHCP Ubuntu-Server
 
  <img width="526" height="903" alt="Screenshot 2026-08-14 163452" src="https://github.com/user-attachments/assets/c481e35a-d41a-4218-ac0d-edd77a4be9e3" />
 
